@@ -1,5 +1,5 @@
 #!/bin/bash
-SRC=$(ls -t ~/Downloads/kangaru-index-v*.html 2>/dev/null | head -1)
+SRC=$(find ~/Downloads -name "kangaru-index-v*.html" -print0 | xargs -0 ls -t 2>/dev/null | head -1)
 if [ -z "$SRC" ]; then
   echo "エラー: ~/Downloads/ にkangaru-index-v*.htmlが見つかりません"
   exit 1
